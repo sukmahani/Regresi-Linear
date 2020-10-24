@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+data(longley)
+dim(longley)
+head(longley)
+```
+
+```{r}
+summary(longley)
+```
+
+```{r}
+new_dt <- subset(longley,selec=c(Population,Employed))
+new_dt
+```
+
+```{r}
+fit <- lm(Population~Employed, data=longley)
+summary(fit)
+```
+
+```{r}
+library(predict3d)
+ggPredict(fit)
+```
+
+```{r}
+ggPredict(fit, xpost=0.75 , vjust=1.5 , show.error=TRUE)
+```
+
+```{r}
+fit <- lm(Population~ GNP+Employed, data=longley)
+summary(fit)
+```
+
+
+```{r}
+library(predict3d)
+```
+
+
+```{r}
+ggPredict(fit)
+```
+
+
+```{r}
+ggPredict(fit, show.error = TRUE, facet.modx=TRUE)
+```
+
+
+```{r}
+
+```
+
+
+
+
+
+
